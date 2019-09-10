@@ -57,10 +57,16 @@ WHERE supplier_id='11'
 ### list orders descending by the order date. The order with date 1998-05-06 should be at the top.
 > This can be done with SELECT, WHERE, and ORDER BY clauses
 
+SELECT *
+FROM orders
+ORDER BY order_date DESC
 
 ### find all suppliers who have names longer than 20 characters. You can use `length(company_name)` to get the length of the name. Returns 11 records.
 > This can be done with SELECT and WHERE clauses
 
+SELECT *
+FROM suppliers
+WHERE length(company_name) > 20
 
 ### find all customers that include the word 'MARKET' in the contact title. Should return 19 records.
 > This can be done with SELECT and a WHERE clause using the LIKE keyword
@@ -69,6 +75,9 @@ WHERE supplier_id='11'
 
 > Remember to convert your contact title to all upper case for case insenstive comparing so upper(contact_title)
 
+SELECT *
+FROM customers
+WHERE upper(contact_title) LIKE '%MARKET%'
 
 ### add a customer record for
 * customer id is 'SHIRE'
@@ -80,9 +89,16 @@ WHERE supplier_id='11'
 * the country is 'Middle Earth'
 > This can be done with the INSERT INTO clause
 
+INSERT INTO customers(customer_id, company_name, contact_name, address, city, postal_code, country)
+VALUES ('SHIRE', 'The Shire', 'Bilbo Baggins', '1 Hobbit-Hole', 'Bag-End', '111', 'Middle Earth')
+
 
 ### update _Bilbo Baggins_ record so that the postal code changes to _"11122"_.
 > This can be done with UPDATE and WHERE clauses
+
+UPDATE customers
+SET postal_code = 11122
+WHERE customer_id = 'SHIRE'
 
 
 ### list orders grouped by customer showing the number of orders per customer. _Rattlesnake Canyon Grocery_ should have 18 orders.
