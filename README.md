@@ -36,14 +36,23 @@ Answer the following data queries. Keep track of the SQL you write by pasting it
 ### find all customers that live in London. Returns 6 records.
 > This can be done with SELECT and WHERE clauses
 
+SELECT *
+FROM customers
+WHERE city='London'
 
 ### find all customers with postal code 1010. Returns 3 customers.
 > This can be done with SELECT and WHERE clauses
 
+SELECT *
+FROM customers
+WHERE postal_code='1010'
 
 ### find the phone number for the supplier with the id 11. Should be (010) 9984510.
 > This can be done with SELECT and WHERE clauses
 
+SELECT phone
+FROM suppliers
+WHERE supplier_id='11'
 
 ### list orders descending by the order date. The order with date 1998-05-06 should be at the top.
 > This can be done with SELECT, WHERE, and ORDER BY clauses
@@ -61,7 +70,7 @@ Answer the following data queries. Keep track of the SQL you write by pasting it
 > Remember to convert your contact title to all upper case for case insenstive comparing so upper(contact_title)
 
 
-### add a customer record for   
+### add a customer record for
 * customer id is 'SHIRE'
 * company name is 'The Shire'
 * contact name is 'Bilbo Baggins'
@@ -109,7 +118,7 @@ Take the following data and normalize it into a 3NF database.
 > This is done with a DELETE query
 
 > In the WHERE clause, you can provide another list with an IN keyword this list can be the result of another SELECT query. Write a query to return a list of CustomerIDs that meet the criteria above. Pass that to the IN keyword of the WHERE clause as the list of IDs to be deleted
- 
+
 > Use a LEFT JOIN to join the Orders table onto the Customers table and check for a NULL value in the OrderID column
 
 ## Create Database and Table

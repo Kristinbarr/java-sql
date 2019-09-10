@@ -53,3 +53,5 @@ __view a single table:__
 __SQL__
 - open new query editor, clear previous query
   - 'Tools' -> 'Query tool'
+- make query
+- to run, click upper right/center lightning bolt icon
