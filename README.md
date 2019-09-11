@@ -106,13 +106,28 @@ WHERE customer_id = 'SHIRE'
 
 > There is more information about the COUNT clause on [W3 Schools](https://www.w3schools.com/sql/sql_count_avg_sum.asp)
 
+SELECT company_name, count(order_id)
+FROM orders o JOIN customers c
+ON o.customer_id=c.customer_id
+GROUP BY company_name
 
 ### list customers names and the number of orders per customer. Sort the list by number of orders in descending order. _Save-a-lot Markets should be at the top with 31 orders followed by _Ernst Handle_ with 30 orders. Last should be _Centro comercial Moctezuma_ with 1 order.
 > This can be done by adding an ORDER BY clause to the previous answer
 
+SELECT company_name, count(o.order_id)
+FROM orders o JOIN customers c
+ON o.customer_id = c.customer_id
+GROUP BY company_name
+ORDER BY count(o.order_id) DESC
 
 ### list orders grouped by customer's city showing number of orders per city. Returns 69 Records with _Aachen_ showing 6 orders and _Albuquerque_ showing 18 orders.
 > This is very similar to the previous two queries, however, it focuses on the City rather than the CustomerName
+
+SELECT c.city, count(o.ship_city)
+FROM orders o JOIN customers c
+ON o.customer_id = c.customer_id
+GROUP BY c.city
+ORDER BY c.city DESC
 
 
 ## Data Normalization
